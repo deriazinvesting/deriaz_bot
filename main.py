@@ -28,8 +28,8 @@ def get_price_message():
         "엔비디아": "NVDA",
         "마이크론": "MU",
         "샌디스크": "SNDK",
-        "비트코인": "BTC/USDT",
-        "이더리움": "ETH/USDT",
+        "비트코인": "BTC/USD",
+        "이더리움": "ETH/USD",
         "달러/원": "USD/KRW"
     }
     
@@ -63,3 +63,4 @@ if __name__ == "__main__":
     send_msg(text)
 
     print("전송 완료")
+
