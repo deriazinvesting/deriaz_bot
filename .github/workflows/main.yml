@@ -1,0 +1,31 @@
+name: Stock Alarm Bot
+
+on:
+  schedule:
+    # 매일 한국 시간 오후 6시 실행 (UTC 09:00)
+    # 월~금요일만 실행 (1-5)
+    - cron: '0 9 * * 1-5'
+  workflow_dispatch: # 수동 실행 버튼 추가
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run Bot
+      env:
+        TG_TOKEN: ${{ secrets.TG_TOKEN }}
+        TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+      run: |
+        python main.py
