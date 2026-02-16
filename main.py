@@ -18,9 +18,18 @@ def get_price_message():
     # 한국주식: 종목코드, 미국주식: 티커, 지수: KS11(코스피), KQ11(코스닥), US500(S&P500)
     target_stocks = {
         "코스피": "KS11",
-        "삼성전자": "005930",
+        "코스닥": "KQ11",
         "S&P 500": "US500",
-        "애플": "AAPL",
+        "나스닥": "IXIC",
+        "삼성전자": "005930",
+        "SK하이닉스": "000660",
+        "알파벳": "GOOGL",
+        "테슬라": "TSLA",
+        "엔비디아": "NVDA",
+        "마이크론": "MU",
+        "샌디스크": "SNDK",
+        "비트코인": "BTC/USDT",
+        "이더리움": "ETH/USDT",
         "달러/원": "USD/KRW"
     }
     
@@ -52,4 +61,5 @@ def get_price_message():
 if __name__ == "__main__":
     text = get_price_message()
     send_msg(text)
+
     print("전송 완료")
